@@ -1,0 +1,14 @@
+{
+    "name": "neegx/neegx",
+    "description": "Simple framework for simple website.",
+    "keywords": ["framework", "neegx"],
+    "license": "MIT",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Neegx\\": "core/modules/",
+            "Neegx\\Foundation\\": "core/Foundation/",
+            "App\\": "app/"
+        }
+    }
+}
