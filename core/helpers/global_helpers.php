@@ -27,9 +27,11 @@ function get_routes(){
 
 }
 
-function tpl($tpl)
+function view($tpl,$var_list=array())
 {
+    $tpl=$tpl.'.twig';
     
-    echo $tpl;
+    $engine=new Neegx\Foundation\TemplateHandler\TemplateHandler();
+    $engine->render($tpl,$var_list);
 }
 
