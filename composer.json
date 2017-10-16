@@ -10,5 +10,9 @@
             "Neegx\\Foundation\\": "core/Foundation/",
             "App\\": "app/"
         }
+    },
+
+    "require": {
+         "twig/twig" : "~2.0"
     }
 }
