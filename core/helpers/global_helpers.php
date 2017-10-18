@@ -35,3 +35,11 @@ function view($tpl,$var_list=array())
     $engine->render($tpl,$var_list);
 }
 
+function config($name){
+    return \Neegx\Foundation\Config\Config::get($name);
+}
+
+function new_db($name){
+    return new \Neegx\Foundation\Db\Db($name);
+}
+
