@@ -2,6 +2,7 @@
 namespace Neegx\Foundation\Config;
 
 use Neegx\Foundation\Contracts\ConfigInterface;
+use Neegx\Support\Arr\Arr;
 
 class Config implements ConfigInterface
 {
@@ -9,7 +10,12 @@ class Config implements ConfigInterface
     public static $all_config=array();
 
     public static function get($var){
-        return Config::$all_config[$var];
+        if(Arr::get(static::$all_config,$var)){
+            return Arr::get(static::$all_config,$var);
+        }else{
+            return NULL;
+        }
+        
     }
 
     public static function load(){
@@ -25,17 +31,23 @@ class Config implements ConfigInterface
             if ($file != "." && $file != ".." && strtolower(substr($file, strrpos($file, '.') + 1)) == 'php')
             {
                 $val=Config::return_file(__DIR__.'/../../../config/'.$file);
-                if($val){array_push($list,$val);}
+                if($val){
+                    $list[strtolower(substr($file,0, strrpos($file, '.')))]=$val;
+                }
             }
 
         }
-        Config::$all_config=$list;
-        var_dump(Config::get(0));
+        static::$all_config=$list;
+
     }
 
     private static function return_file($file){
         require $file;
         return (isset($config))?$config:NULL;
+    }
+
+    private function __construct(){
+
     }
 
 
