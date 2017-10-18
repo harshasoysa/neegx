@@ -8,7 +8,12 @@
         "psr-4": {
             "Neegx\\": "core/modules/",
             "Neegx\\Foundation\\": "core/Foundation/",
+            "Neegx\\Support\\": "core/Support/",
             "App\\": "app/"
         }
+    },
+
+    "require": {
+         "twig/twig" : "~2.0"
     }
 }

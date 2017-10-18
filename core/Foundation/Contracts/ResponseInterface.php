@@ -4,7 +4,8 @@ namespace Neegx\Foundation\Contracts;
 
 interface ResponseInterface
 {
-  
+    
+    public static function Instance();
    
     public function send();
 

@@ -26,8 +26,6 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 require_once __DIR__.'/../core/app.php';
 
-
-
 $Kernal= new Neegx\Foundation\Kernel();
 
 $response=$Kernal->handle(request());

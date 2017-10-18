@@ -5,9 +5,14 @@ namespace Neegx\Foundation;
 use Neegx\Foundation\Contracts\KernelInterface;
 use Neegx\Foundation\HttpResponse\HttpResponse;
 use Neegx\Foundation\Route\Route;
+use Neegx\Foundation\Config\Config;
+use Neegx\Foundation\TemplateHandler\TemplateHandler;
 
 class Kernel
 {
+    public function __construct(){
+        $this->tpl_engine=new TemplateHandler();
+    }
     
     public function handle($request)
     {
@@ -21,7 +26,9 @@ class Kernel
 
         $instance->$controler_method();
 
-        $response=new HttpResponse($request);
+        $xx=Config::load();
+
+        $response=HttpResponse::Instance();
         
         return $response;
     }
